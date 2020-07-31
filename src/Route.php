@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace FastD\FastRoute;
 
-use FastD\FastRoute\Exceptions\CallbackException;
 
 /**
  * Class Route

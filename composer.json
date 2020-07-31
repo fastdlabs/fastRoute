@@ -10,6 +10,10 @@
         {
             "name": "longxinhui",
             "email": "longxinhui@php.net"
+        },
+        {
+            "name": "janhaung",
+            "email": "bboyjanhuang@gmail.com"
         }
     ],
     "require": {
