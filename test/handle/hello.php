@@ -1,15 +1,16 @@
 <?php
 
-use FastD\Http\Response;
-use FastD\Http\ServerRequest;
-use FastD\Middleware\DelegateInterface;
-use FastD\Routing\Handle\RouteHandleInterface;
-use Psr\Http\Message\ResponseInterface;
-
-class hello implements RouteHandleInterface
+class hello
 {
-    public function handle(ServerRequest $request, DelegateInterface $delegate): ResponseInterface
+
+    public function handle()
     {
-        return new Response("hello");
+        return 'hello';
     }
+
+    public function age($variables, $parameters)
+    {
+        return sprintf('%s::%d', $variables['name'], $variables['age']);
+    }
+
 }

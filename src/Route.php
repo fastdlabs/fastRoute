@@ -3,12 +3,17 @@ declare(strict_types=1);
 
 namespace FastD\FastRoute;
 
+use FastD\FastRoute\Exceptions\CallbackException;
+
 /**
  * Class Route
  * @package FastD\FastRoute
  */
 class Route
 {
+
+    private const DEFAULT_CALLBACK = 'handle';
+
     /**
      * @var array
      */
@@ -59,9 +64,30 @@ class Route
         return $this->parameters;
     }
 
+    /**
+     * @return array
+     */
     public function getMiddlewares(): array
     {
         return $this->middlewares;
     }
 
+    /**
+     * @return array
+     */
+    public function getVariables(): array
+    {
+        return $this->variables;
+    }
+
+
+    public function handler()
+    {
+        if (false === strstr($this->handler, '@')) {
+            return call_user_func(array(new $this->handler, self::DEFAULT_CALLBACK), $this->variables, $this->parameters);
+        }
+
+        [$class, $callback] = explode('@', $this->handler);
+        return call_user_func(array(new $class, $callback), $this->variables, $this->parameters);
+    }
 }

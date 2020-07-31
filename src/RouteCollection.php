@@ -57,7 +57,7 @@ class RouteCollection
         foreach ((array) $method as $value) {
             foreach ($routeDatas as $routeData) {
                 $this->dataGenerator->addRoute($value, $routeData, function ($variables) use ($method, $handler, $middleware, $parameters) {
-                    return new Route($method, $handler, (array) $middleware, (array) $middleware);
+                    return new Route($method, $handler, $variables, (array) $middleware, (array) $middleware);
                 });
             }
         }
