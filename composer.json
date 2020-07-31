@@ -1,0 +1,30 @@
+{
+    "name": "fastd/fast-route",
+    "description": "fast route",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "fast-route"
+    ],
+    "authors": [
+        {
+            "name": "longxinhui",
+            "email": "longxinhui@php.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "nikic/fast-route": "^1.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FastD\\FastRoute\\": "src"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
